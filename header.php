@@ -19,7 +19,11 @@ Structure: not responsive, 960px grid
 <link rel="stylesheet" href="css/style.css">
 <!-- stylesheet for our grid system 960px -->
 <link rel="stylesheet" href="css/960_12_col.css">
+<!-- data tables css-->
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <script src="js/jquery-3.2.1.min.js"></script>
+<!-- data tables js-->
+<script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <!-- this will be the primary place to make scripts to keep our <head> clean-->
 <script src="js/script.js"></script> 
 <!--Load the GOOGLE CHARTS API-->
