@@ -13,7 +13,7 @@
 ?>
 </ul>
 
-<?php include('includes/conn2.php'); ?>
+
 
 
 
