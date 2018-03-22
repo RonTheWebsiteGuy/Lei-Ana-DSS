@@ -59,7 +59,7 @@ Structure: not responsive, 960px grid
 <!--below is to tell robots to go away and request not index-->
 <meta name="robots" content="noindex, nofollow">
 <!-- dynamic title below -->
-<title><?php echo $title . " | ". $sitename; ?></title> 
+<title><?php echo $title; ?></title> 
 <!-- general, user customized stylesheet-->
 <link rel="stylesheet" href="css/style.css">
 <!-- stylesheet for our grid system 960px -->
@@ -76,11 +76,14 @@ Structure: not responsive, 960px grid
 <header id="header">
 <nav id="nav">
 	<ul>
-		<li><a href="#">Menu Item</a></li>
-		<li><a href="#">Menu Item</a></li>
-		<li><a href="#">Menu Item</a></li>
-		<li><a href="#">Menu Item</a></li>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Degrees</a></li>
+		<li><a href="#">Faculty</a></li>
+		<li><a href="#">Students</a></li>
+		<li><a href="#">Course</a></li>
+		<li><a href="#">Terms</a></li>
+		<li><a href="#">Schedule</a></li>
+		<li><a href="#">Logout</a></li>
 	</ul>
 </nav>
 </header> 
->>>>>>> 315d7128e9fb54a5c6142eec90f8c7fa18b6e8d9
