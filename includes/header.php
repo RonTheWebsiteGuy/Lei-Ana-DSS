@@ -22,9 +22,9 @@ Structure: not responsive, 960px grid
 <link rel="stylesheet" href="css/960_12_col.css">
 <!-- data tables CSS-->
 <link rel="stylesheet" href="css/datatables.min.css">
-<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery-1.7.2.min.js"></script>
 <!-- this will be the primary place to make scripts to keep our <head> clean-->
-<script src="js/script.js"></script> 
+<script src="js/scripts.js"></script> 
 <!-- data tables js-->
 <script src="js/datatables.min.js"></script>
 <!--Load the GOOGLE CHARTS API-->
@@ -34,16 +34,17 @@ Structure: not responsive, 960px grid
 
 <!-- MENU-->
 <header id="header" class="container_12">
+<div id="logo"><h1>LEI ANA DSS</h1></div>
 <nav id="nav">
 	<ul>
-		<li><a href="#">Home</a></li>
-		<li><a href="#">Degrees</a></li>
-		<li><a href="#">Faculty</a></li>
-		<li><a href="#">Students</a></li>
-		<li><a href="#">Course</a></li>
-		<li><a href="#">Terms</a></li>
-		<li><a href="#">Schedule</a></li>
-		<li><a href="#">Logout</a></li>
+		<li><a href="index.php">Home</a></li>
+		<li><a href="degrees.php">Degrees</a></li>
+		<li><a href="faculty.php">Faculty</a></li>
+		<li><a href="students.php">Students</a></li>
+		<li><a href="course">Course</a></li>
+		<li><a href="terms.php">Terms</a></li>
+		<li><a href="schedule.php">Schedule</a></li>
+		<li><a href="logout.php">Logout</a></li>
 	</ul>
 </nav>
 </header> 
