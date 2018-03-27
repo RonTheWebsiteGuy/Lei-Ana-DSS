@@ -7,7 +7,7 @@ PM Page: https://trello.com/b/S5Q571K7/is6120-software-practicum (private)
 Structure: not responsive, 960px grid
 -->
 
-<!DOCTYPE> 
+<!DOCTYPE>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -15,7 +15,7 @@ Structure: not responsive, 960px grid
 <!--below is to tell robots to go away and request not index-->
 <meta name="robots" content="noindex, nofollow">
 <!-- dynamic title below -->
-<title><?php echo $title; ?></title> 
+<title><?php echo $title; ?></title>
 <!-- general, user customized stylesheet-->
 <link rel="stylesheet" href="css/style.css">
 <!-- stylesheet for our grid system 960px -->
@@ -24,7 +24,7 @@ Structure: not responsive, 960px grid
 <link rel="stylesheet" href="css/datatables.min.css">
 <script src="js/jquery-1.7.2.min.js"></script>
 <!-- this will be the primary place to make scripts to keep our <head> clean-->
-<script src="js/scripts.js"></script> 
+<script src="js/scripts.js"></script>
 <!-- data tables js-->
 <script src="js/datatables.min.js"></script>
 <!--Load the GOOGLE CHARTS API-->
@@ -42,11 +42,16 @@ Structure: not responsive, 960px grid
 		<li><a href="program-requirements.php">Program Requirements</a></li>
 		<li><a href="faculty.php">Faculty</a></li>
 		<li><a href="students.php">Students</a></li>
+<<<<<<< HEAD
 		<li><a href="course-master.php">Courses</a></li>
+=======
+		<li><a href="courses.php">Courses</a></li>
+>>>>>>> CameronWorking
 		<li><a href="terms.php">Terms</a></li>
 		<li><a href="schedule.php">Schedule</a></li>
+		<li><a href="programs.php">Programs</a></li>
 		<li><a href="logout.php">Logout</a></li>
 	</ul>
 </nav>
-</header> 
+</header>
 <main id="main" class="container_12">
