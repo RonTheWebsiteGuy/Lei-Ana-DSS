@@ -13,7 +13,7 @@ jQuery(document).ready( function () {
 <?php  //Attempt to pull table from db and display
 echo "<table id='programs'>";
 echo "<thead>";
-echo "<tr><th>ClassId</th><th>Class_Name</th><th>Class_Number</th><th>PrereqID</th></tr>";
+echo "<tr><th>Class Id</th><th>Major</th><th>Class Name</th><th>Class Number</th></tr>";
 echo "</thead>";
 
 echo "<tbody>";
@@ -36,7 +36,10 @@ class TableRows extends RecursiveIteratorIterator {
 }
 
 try {
-  $stmt = $conn->prepare("SELECT * FROM Classes;");
+  $stmt = $conn->prepare("SELECT Required_Classes.ClassID, Required_Classes.MajorID, Classes.Class_Name, Classes.Class_Number
+FROM Required_Classes
+Join Classes ON Required_Classes.ClassID=Classes.ClassID
+ORDER BY Required_Classes.MajorID, Required_Classes.ClassID ASC;");
     $stmt->execute();
 
     // set the resulting array to associative
