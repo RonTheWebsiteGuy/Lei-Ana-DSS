@@ -32,12 +32,17 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 
-
-
-
-$sth = $conn->prepare('SELECT * FROM `Prerequisites`');
+$sth = $conn->prepare('SELECT * FROM Required_Classes JOIN Classes ON Required_Classes.classID = Classes.classID');
 
 $sth->execute();
+
+
+// USE THE BELOW TO DEBUG AND VIEW YOUR DB DATA AS AN ARRAY 
+//$array = $sth->fetchAll(PDO::FETCH_OBJ);
+//echo "<pre>";
+//print_r($array);
+//echo "</pre>";
+
 
 ?>
 
