@@ -38,10 +38,11 @@ Structure: not responsive, 960px grid
 <nav id="nav">
 	<ul>
 		<li><a href="index.php">Home</a></li>
-		<li><a href="degrees.php">Degrees</a></li>
+		<li><a href="degrees.php">Programs</a></li>
+		<li><a href="program-requirements.php">Program Requirements</a></li>
 		<li><a href="faculty.php">Faculty</a></li>
 		<li><a href="students.php">Students</a></li>
-		<li><a href="course">Course</a></li>
+		<li><a href="course-master.php">Courses</a></li>
 		<li><a href="terms.php">Terms</a></li>
 		<li><a href="schedule.php">Schedule</a></li>
 		<li><a href="logout.php">Logout</a></li>
