@@ -9,29 +9,47 @@ jQuery(document).ready( function () {
 
 <h1><?php echo $title; ?></h1>
 
-<table id="programs">
-<thead>
-<tr><th>CRN (PK)</th><th>Subject</th><th>Course#</th><th>Section</th><th>Term</th><th>Enrolled</th></tr>
-</thead>
-<tbody>
-<tr><td>1397</td><td>ECON</td><td>6000</td><td>A</td><td>Fall 2018</td><td>10</td></tr>
-<tr><td>2815</td><td>FIN</td><td>6000</td><td>A</td><td>Fall 2018</td><td>10</td></tr>
-<tr><td>3396</td><td>FIN</td><td>6300</td><td>A</td><td>Fall 2018</td><td>10</td></tr>
-<tr><td>2328</td><td>HR</td><td>6300</td><td>A</td><td>Fall 2018</td><td>10</td></tr>
-<tr><td>3192</td><td>HR</td><td>6320</td><td>OE</td><td>Fall 2018</td><td>10</td></tr>
-<tr><td>9999</td><td>IS</td><td>9999</td><td>A</td><td>Spring 2099</td><td>0</td></tr>
-</tbody>
-<?php
-  //foreach($conn->query('SELECT * from FOO') as $row) {
-    //    echo "<li>".$row[0]."</li>";
-    //}
+
+<?php  //Attempt to pull table from db and display
+echo "<table id='programs'>";
+echo "<thead>";
+echo "<tr><th>ClassId</th><th>Class_Name</th><th>Class_Number</th><th>PrereqID</th></tr>";
+echo "</thead>";
+
+echo "<tbody>";
+class TableRows extends RecursiveIteratorIterator {
+    function __construct($it) {
+        parent::__construct($it, self::LEAVES_ONLY);
+    }
+
+    function current() {
+        return "<td>" . parent::current(). "</td>";
+    }
+
+    function beginChildren() {
+        echo "<tr>";
+    }
+
+    function endChildren() {
+        echo "</tr>" . "\n";
+    }
+}
+
+try {
+  $stmt = $conn->prepare("SELECT * FROM Classes;");
+    $stmt->execute();
+
+    // set the resulting array to associative
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+        echo $v;
+    }
+} catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+$conn = null;
+echo "</tbody>";
+echo "</table>";
 ?>
-</table>
-
-
-
-
-
-
 
 <?php include('includes/footer.php'); ?>
