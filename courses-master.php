@@ -65,7 +65,7 @@ echo '<table id="courses">';
 echo '<thead><tr><th>Class ID</th><th>Class Name</th><th>CRN</th></tr></thead><tbody>';
 
 foreach ($sth2 as $item) {
-	echo '<tr><td><a href="course.php?id='.$item[ClassID].'">'.$item[ClassID].'</a></td><td>'.$item[Class_Name].'</td><td>CRN Here</td></tr>';
+	echo '<tr><td><a href="course.php?id='.$item['ClassID'].'">'.$item['ClassID'].'</a></td><td>'.$item['Class_Name'].'</td><td>CRN Here</td></tr>';
 }	
 echo '</tbody></table>';
 

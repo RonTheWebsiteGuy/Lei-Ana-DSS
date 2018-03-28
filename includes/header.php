@@ -41,14 +41,10 @@ Structure: not responsive, 960px grid
 		<li><a href="degrees.php">Programs</a></li>
 		<li><a href="program-requirements.php">Program Requirements</a></li>
 		<li><a href="faculty.php">Faculty</a></li>
-		<li><a href="students.php">Students</a></li>
-<<<<<<< HEAD
-		<li><a href="course-master.php">Courses</a></li>
-=======
-		<li><a href="courses.php">Courses</a></li>
->>>>>>> CameronWorking
-		<li><a href="terms.php">Terms</a></li>
-		<li><a href="schedule.php">Schedule</a></li>
+		<li><a href="students-master.php">Students</a></li>
+		<li><a href="courses-master.php">Courses</a></li>
+		<li><a href="courses-schedule.php">Course Schedule</a></li>
+		<li><a href="term-master.php">Terms</a></li>
 		<li><a href="programs.php">Programs</a></li>
 		<li><a href="logout.php">Logout</a></li>
 	</ul>

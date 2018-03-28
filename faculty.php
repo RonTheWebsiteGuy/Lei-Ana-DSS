@@ -1,5 +1,5 @@
 <?php include('includes/conn.php'); ?>
-<?php $title = "View Individual Course"; include('includes/header.php'); ?>
+<?php $title = "View Individual Student"; include('includes/header.php'); ?>
 
 
 <h1><?php echo $title; ?></h1>
@@ -17,7 +17,7 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 
-$sth = $conn->prepare("SELECT * FROM Classes WHERE ClassID = '$_GET[id]'");
+$sth = $conn->prepare("SELECT * FROM Students WHERE StudentID = '$_GET[id]'");
 $sth->execute();
 
 
@@ -36,17 +36,15 @@ $sth->execute();
 [PrereqID] => 
 */
 
-echo "<table>";
-
-foreach($sth as $item) {
-	echo '<tr>';
-	echo '<td>classID</td><td>'.$item['ClassID'].'</td></tr>'; 
-	echo '<td>className</td><td>'.$item['Class_Name'].'</td></tr>';
-	echo '<td>classNumber</td><td>'.$item['Class_Number'].'</td></tr>';
-	echo '<td>prerequisite</td><td>'.$item['PrereqID'].'</td></tr>';
+echo '<ul>';
+foreach ($sth as $item) {
+	echo '<li>Student ID: '. $item['StudentID'] .'</li>';
+	echo '<li>Last Name: '. $item['Lname'] .'</li>';
+	echo '<li>First Name: '. $item['Fname'] .'</li>';
+	echo '<li>Program: '. $item['MajorID'] .'</li>';
+	echo '<li>Concentration: '. $item['ConcentrationID']. '</li>';
 }
-
-echo "</table>";
+echo '</ul>';
 
 } catch(PDOException $e) {
 	echo "Connection failed: " . $e->getMessage();
