@@ -1,5 +1,5 @@
 <?php include('includes/conn.php'); ?>
-<?php $title = "View Individual Student"; include('includes/header.php'); ?>
+<?php $title = "View Individual Faculty"; include('includes/header.php'); ?>
 
 
 <h1><?php echo $title; ?></h1>

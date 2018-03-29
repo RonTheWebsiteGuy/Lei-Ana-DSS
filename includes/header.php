@@ -29,6 +29,42 @@ Structure: not responsive, 960px grid
 <script src="js/datatables.min.js"></script>
 <!--Load the GOOGLE CHARTS API-->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<?php 
+// LOAD tHIS IF IT'S THE HOME PAGE
+if (basename(__FILE__) == 'index.php') {  
+
+//no need to set connection since include conn.php is b efore header
+$sth6 = $conn->prepare("SELECT Students.MajorID, COUNT(*) FROM Students JOIN Majors ON Students.MajorID = Majors.MajorID GROUP BY MajorID;");
+$sth6->execute();
+
+
+	?>
+
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+<?php 
+			foreach ($sth6 as $item) {
+				echo "['".$item['MajorID']."', ".$item['COUNT(*)']."],";
+			}
+?>
+
+        ]);
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data);
+      }
+</script>	
+<?php } ?>
+
+
+
 </head>
 <body>
 
@@ -38,14 +74,14 @@ Structure: not responsive, 960px grid
 <nav id="nav">
 	<ul>
 		<li><a href="index.php">Home</a></li>
-		<li><a href="degrees.php">Programs</a></li>
-		<li><a href="program-requirements.php">Program Requirements</a></li>
-		<li><a href="faculty.php">Faculty</a></li>
+		<li><a href="programs-master.php">Programs</a></li>
+		<li><a href="programs-requirements.php">Program Requirements</a></li>
+		<li><a href="faculty-master.php">Faculty</a></li>
 		<li><a href="students-master.php">Students</a></li>
 		<li><a href="courses-master.php">Courses</a></li>
 		<li><a href="courses-schedule.php">Course Schedule</a></li>
-		<li><a href="term-master.php">Terms</a></li>
-		<li><a href="programs.php">Programs</a></li>
+		<li><a href="terms-master.php">Terms</a></li>
+		<!--<li><a href="programs.php">Programs</a></li>-->
 		<li><a href="logout.php">Logout</a></li>
 	</ul>
 </nav>
