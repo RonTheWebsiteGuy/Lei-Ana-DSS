@@ -27,19 +27,15 @@ Structure: not responsive, 960px grid
 <script src="js/scripts.js"></script>
 <!-- data tables js-->
 <script src="js/datatables.min.js"></script>
-<!--Load the GOOGLE CHARTS API-->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <?php 
 // LOAD tHIS IF IT'S THE HOME PAGE
-if (basename(__FILE__) == 'index.php') {  
+if ( basename($_SERVER['PHP_SELF']) == 'index.php' ) {  
 
 //no need to set connection since include conn.php is b efore header
-$sth6 = $conn->prepare("SELECT Students.MajorID, COUNT(*) FROM Students JOIN Majors ON Students.MajorID = Majors.MajorID GROUP BY MajorID;");
-$sth6->execute();
-
-
 	?>
+<!--Load the GOOGLE CHARTS API-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -49,8 +45,15 @@ $sth6->execute();
 
         var data = google.visualization.arrayToDataTable([
 <?php 
+$sth6 = $conn->prepare("SELECT Students.MajorID, COUNT(*) FROM Students JOIN Majors ON Students.MajorID = Majors.MajorID GROUP BY MajorID;");
+$sth6->execute();
+			
+			echo "['Program', 'Students Enrolled'],";
 			foreach ($sth6 as $item) {
-				echo "['".$item['MajorID']."', ".$item['COUNT(*)']."],";
+				$a = $item['MajorID'];
+				$b = $item['COUNT(*)'];
+
+				echo "['".$a."', ".$b."],\n";
 			}
 ?>
 
@@ -58,7 +61,12 @@ $sth6->execute();
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-        chart.draw(data);
+	  var options = {
+          title: 'Breakdown of Program Enrollment',
+          is3D: true,
+        };
+
+        chart.draw(data, options);
       }
 </script>	
 <?php } ?>

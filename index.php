@@ -1,6 +1,5 @@
-<?php $title = "Lei Ana DSS"; include("includes/header.php"); ?>
 <?php include("includes/conn.php"); ?>
-<?php //include("includes/connb.php"); ?>
+<?php $title = "Lei Ana DSS"; include("includes/header.php"); ?>
 
 <h1>Lei Ana DSS</h1>
 <p>Welcome to the HPU academic advising Decision Support System.</p>
@@ -64,7 +63,7 @@ $result5 = $sth5->fetchColumn();
 			}
 
 		?>
-		<div id="piechart"></div>
+		<div id="piechart" style="width:400px; height:500px"></div>
 	</div>
 </div>
 
