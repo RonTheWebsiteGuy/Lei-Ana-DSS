@@ -45,7 +45,6 @@ Structure: not responsive, 960px grid
 		<li><a href="courses-master.php">Courses</a></li>
 		<li><a href="courses-schedule.php">Course Schedule</a></li>
 		<li><a href="term-master.php">Terms</a></li>
-		<li><a href="programs.php">Programs</a></li>
 		<li><a href="logout.php">Logout</a></li>
 	</ul>
 </nav>
