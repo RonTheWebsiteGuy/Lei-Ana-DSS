@@ -6,7 +6,7 @@
 
 
 
-<?php 
+<?php
 
 
 
@@ -23,7 +23,7 @@ $sth->execute();
 
 
 
-// USE THE BELOW TO DEBUG AND VIEW YOUR DB DATA AS AN ARRAY 
+// USE THE BELOW TO DEBUG AND VIEW YOUR DB DATA AS AN ARRAY
 //$array = $sth->fetchAll(PDO::FETCH_OBJ);
 //echo "<pre>";
 //print_r($array);
@@ -33,17 +33,18 @@ $sth->execute();
 [ClassID] => HR6400
 [Class_Name] => Human Resource Management
 [Class_Number] => 6400
-[PrereqID] => 
+[PrereqID] =>
 */
 
 echo "<table>";
 
 foreach($sth as $item) {
 	echo '<tr>';
-	echo '<td>classID</td><td>'.$item['ClassID'].'</td></tr>'; 
+	echo '<td>classID</td><td>'.$item['ClassID'].'</td></tr>';
 	echo '<td>className</td><td>'.$item['Class_Name'].'</td></tr>';
 	echo '<td>classNumber</td><td>'.$item['Class_Number'].'</td></tr>';
 	echo '<td>prerequisite</td><td>'.$item['PrereqID'].'</td></tr>';
+	echo '<td><button class="edit-student">Edit</button> <button class="remove-student">Remove</button> <button class="save-student hideit">Save</button> <button class="cancel-student hideit">Cancel</button></td></tr>';
 }
 
 echo "</table>";
