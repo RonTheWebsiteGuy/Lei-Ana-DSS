@@ -51,13 +51,13 @@ $current_major = 'x';
 
 foreach ($sth as $item) {
 	if($prev_major != $current_major) {
-		echo "<h2>".$item[Mname]."</h2><ul>";
-		$current_major = $item[Mname];
+		echo "<h2>".$item['Mname']."</h2><ul>";
+		$current_major = $item['Mname'];
 	}	
 
-	echo '<li><a href="course.php?id='.$item[ClassID].'">'.$item['ClassID']."</a> - ".$item['Class_Name']."</li>";
+	echo '<li><a href="course.php?id='.$item['ClassID'].'">'.$item['ClassID']."</a> - ".$item['Class_Name']."</li>";
 
-	$prev_major = $item[Mname];
+	$prev_major = $item['Mname'];
 	
 	if($prev_major != $current_major) {
 		echo "</ul>";	

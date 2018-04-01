@@ -9,10 +9,23 @@ $pass = 'tidepodmarine';
 
 
 
+<<<<<<< HEAD
 
 try {
     $conn = new PDO("mysql:host=$host;port=$port; dbname=$dbname", $user, $pass);
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
+=======
+//<<<<<<< HEAD
+//try {
+    $conn = new PDO("mysql:host=$host;port=$port; dbname=$dbname", $user, $pass);
+
+//} catch(PDOException $e) {
+///    echo "Connection failed: " . $e->getMessage();/
+//}
+//=======
+
+//>>>>>>> 8be32d3035e9f0324dfeb635d72a6cccd56151ac
+>>>>>>> master
 ?>
