@@ -37,13 +37,13 @@ foreach ($sth as $item) {
 	foreach ($maj as $item2) {
 		echo '<option>'.$item2["MajorID"].'</option>';
 	}
-	
+
 	echo '</select></td>';
 	//echo '<td>'. $item['ConcentrationID']. '</td>';
 	echo '<td><button class="edit-student">Edit</button> <button class="remove-student">Remove</button> <button class="save-student hideit">Save</button> <button class="cancel-student hideit">Cancel</button></td>';
 	echo '</tr>';
 }
-// USE THE BELOW TO DEBUG AND VIEW YOUR DB DATA AS AN ARRAY 
+// USE THE BELOW TO DEBUG AND VIEW YOUR DB DATA AS AN ARRAY
 //$array = $stmt->fetchAll(PDO::FETCH_OBJ);
 //echo "<pre>";
 //print_r($array);
@@ -54,7 +54,7 @@ foreach ($sth as $item) {
 /* FIELDS
 [StudentID] => 1
 [MajorID] => MSIS
-[ConcentrationID] => 
+[ConcentrationID] =>
 [Fname] => Alex
 [Lname] => Wurzel
 */
@@ -62,7 +62,7 @@ foreach ($sth as $item) {
 
 
 
-	
+
 
 
 echo "</tbody>";
@@ -99,7 +99,7 @@ echo "</table>";
 
 
 
-<?php 
+<?php
 
 } catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
