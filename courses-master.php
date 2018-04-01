@@ -13,9 +13,9 @@ jQuery(document).ready( function () {
 
 
 
-<?php 
+<?php
 
-	
+
 
 try {
 
@@ -32,12 +32,12 @@ $sth2->execute();
 ?>
 
 <form action="course.php" method="get">
-	View Course Details: 
+	View Course Details:
 	<select name="id">
-		<?php 
-		foreach ($sth as $item) { 
+		<?php
+		foreach ($sth as $item) {
 			echo '<option name="id">'.$item[ClassID].'</option>';
-		}; 		
+		};
 		?>
 	</select>
 	<input type="submit" value="Look it up!">
@@ -47,7 +47,7 @@ $sth2->execute();
 <?php
 
 
-// USE THE BELOW TO DEBUG AND VIEW YOUR DB DATA AS AN ARRAY 
+// USE THE BELOW TO DEBUG AND VIEW YOUR DB DATA AS AN ARRAY
 //$array = $sth->fetchAll(PDO::FETCH_OBJ);
 //echo "<pre>";
 ///print_r($array);
@@ -62,11 +62,12 @@ $sth2->execute();
 
 
 echo '<table id="courses">';
-echo '<thead><tr><th>Class ID</th><th>Class Name</th><th>CRN</th></tr></thead><tbody>';
+echo '<thead><tr><th>Class ID</th><th>Class Name</th><th>CRN</th><th></th></tr></thead><tbody>';
 
 foreach ($sth2 as $item) {
-	echo '<tr><td><a href="course.php?id='.$item['ClassID'].'">'.$item['ClassID'].'</a></td><td>'.$item['Class_Name'].'</td><td>CRN Here</td></tr>';
-}	
+	echo '<tr><td class="cid"><a href="course.php?id='.$item['ClassID'].'">'.$item['ClassID'].'</a></td><td class="cname">'.$item['Class_Name'].'</td><td class="crn">CRN Here</td>';
+  echo '<td><button class="edit-course">Edit</button> <button class="remove-course">Remove</button> <button class="save-course hideit">Save</button> <button class="cancel-course hideit">Cancel</button></td></tr>';
+}
 echo '</tbody></table>';
 
 
