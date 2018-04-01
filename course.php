@@ -40,11 +40,12 @@ echo "<table>";
 
 foreach($sth as $item) {
 	echo '<tr>';
-	echo '<td>classID</td><td>'.$item['ClassID'].'</td></tr>';
-	echo '<td>className</td><td>'.$item['Class_Name'].'</td></tr>';
-	echo '<td>classNumber</td><td>'.$item['Class_Number'].'</td></tr>';
-	echo '<td>prerequisite</td><td>'.$item['PrereqID'].'</td></tr>';
-	echo '<td><button class="edit-student">Edit</button> <button class="remove-student">Remove</button> <button class="save-student hideit">Save</button> <button class="cancel-student hideit">Cancel</button></td></tr>';
+	echo '<td>classID</td><td class="cid">'.$item['ClassID'].'</td></tr>';
+	echo '<td>className</td><td class="cname">'.$item['Class_Name'].'</td></tr>';
+	echo '<td>classNumber</td><td class="cnumber">'.$item['Class_Number'].'</td></tr>';
+	echo '<td>prerequisite</td><td class="pid">'.$item['PrereqID'].'</td></tr>';
+	echo '<td>prerequisite</td><td class="crn">CRN Goes Here</td></tr>';
+	echo '<td><button class="edit-icourse">Edit</button> <button class="remove-icourse">Remove</button> <button class="save-icourse hideit">Save</button> <button class="cancel-icourse hideit">Cancel</button></td></tr>';
 }
 
 echo "</table>";

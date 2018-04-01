@@ -222,11 +222,15 @@ $(document).ready(function() {
 	/////////////////////////////////EDIT Individual Course/////////////////////////
 	$('.edit-icourse').click(function() {
 			//get original data
-			var x = $(this).closest("tr").find(".cname").text();
-			var y = $(this).closest("tr").find(".crn").text();
+			var w = $(this).closest("tr").find(".cname").text();
+			var x = $(this).closest("tr").find(".cnumber").text();
+			var y = $(this).closest("tr").find(".pid").text();
+			var z = $(this).closest("tr").find(".crn").text();
 			//add inputs
-			$(this).closest("tr").find(".cname").append('<input type="text" value="' + x +'">');
-			$(this).closest("tr").find(".crn").append('<input type="text" value="' + y +'">');
+			$(this).closest("tr").find(".cname").append('<input type="text" value="' + w +'">');
+			$(this).closest("tr").find(".cnumber").append('<input type="text" value="' + x +'">');
+			$(this).closest("tr").find(".pid").append('<input type="text" value="' + y +'">');
+			$(this).closest("tr").find(".crn").append('<input type="text" value="' + z +'">');
 
 			$(this).parent().children().addClass("hideit");
 			$(this).parent().children(".save-icourse, .cancel-icourse").removeClass("hideit");
@@ -259,10 +263,14 @@ $(document).ready(function() {
 
 			});
 	//do this after...search and replace, remove and add back buttons
-	var x = $(this).closest("tr").find(".course input").val();
-	var y = $(this).closest("tr").find(".crn input").val();
-	$(this).closest("tr").find(".course").text(x);
-	$(this).closest("tr").find(".crn").text(y);
+	var w = $(this).closest("tr").find(".cname input").val();
+	var x = $(this).closest("tr").find(".cnumber input").val();
+	var y = $(this).closest("tr").find(".pid input").val();
+	var z = $(this).closest("tr").find(".crn input").val();
+	$(this).closest("tr").find(".cname").text(w);
+	$(this).closest("tr").find(".cnumber").text(x);
+	$(this).closest("tr").find(".pid").text(y);
+	$(this).closest("tr").find(".crn").text(z);
 
 	$(this).parent().children(".save-icourse, .cancel-icourse").addClass("hideit");
 	$(this).parent().children(".edit-icourse, .remove-icourse").removeClass("hideit");
