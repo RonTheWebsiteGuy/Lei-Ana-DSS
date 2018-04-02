@@ -26,7 +26,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 $sth = $conn->prepare('SELECT * FROM Majors');
 $sth->execute();
 
-
+	
 ?>
 
 <!--<form action="course.php" method="get">
@@ -60,10 +60,10 @@ $sth->execute();
 
 
 echo '<table id="programs">';
-echo '<thead><tr><th>Program ID</th><th>Program Name</th></tr></thead><tbody>';
+echo '<thead><tr><th>Program ID</th><th>Program Name</th><th></th></tr></thead><tbody>';
 
 foreach ($sth as $item) {
-	echo '<tr><td><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td><td>'.$item['Mname'].'</a></td></tr>';
+	echo '<tr><td class="programid"><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td><td class="programname">'.$item['Mname'].'</a></td><td><button class="edit-program">edit</button></td></tr>';
 }	
 echo '</tbody></table>';
 

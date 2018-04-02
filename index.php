@@ -42,7 +42,7 @@ $result5 = $sth5->fetchColumn();
 
 
 
-
+<hr>
 
 <div class="container_12">
 	<div class="grid_6">
@@ -63,10 +63,11 @@ $result5 = $sth5->fetchColumn();
 			}
 
 		?>
-		<div id="piechart" style="width:400px; height:500px"></div>
+		<div id="piechart" style="width:450px; height:400px"></div>
 	</div>
 </div>
 
+<hr>
 
 
 <?php include("includes/footer.php"); ?>	
