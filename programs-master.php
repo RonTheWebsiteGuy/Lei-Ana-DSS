@@ -13,9 +13,9 @@ jQuery(document).ready( function () {
 
 
 
-<?php
+<?php 
 
-
+	
 
 try {
 
@@ -30,12 +30,12 @@ $sth->execute();
 ?>
 
 <!--<form action="course.php" method="get">
-	View Course Details:
+	View Course Details: 
 	<select name="id">
-		<?php
-		//foreach ($sth as $item) {
+		<?php 
+		//foreach ($sth as $item) { 
 		//	echo '<option name="id">'.$item[ClassID].'</option>';
-		//};
+		//}; 		
 		?>
 	</select>
 	<input type="submit" value="Look it up!">
@@ -54,7 +54,7 @@ $sth->execute();
 
 /*
 [MajorID] => MSIS
-[ConcentrationID] =>
+[ConcentrationID] => 
 [Mname] => Master of Science in Information Systems
 */
 
@@ -63,14 +63,8 @@ echo '<table id="programs">';
 echo '<thead><tr><th>Program ID</th><th>Program Name</th><th></th></tr></thead><tbody>';
 
 foreach ($sth as $item) {
-<<<<<<< HEAD
 	echo '<tr><td class="programid"><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td><td class="programname">'.$item['Mname'].'</a></td><td><button class="edit-program">edit</button></td></tr>';
 }	
-=======
-	echo '<tr><td class="pid"><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td><td class="Mname">'.$item['Mname'].'</a></td>';
-  echo '<td><button class="edit-program">Edit</button> <button class="remove-program">Remove</button> <button class="save-program hideit">Save</button> <button class="cancel-program hideit">Cancel</button></td></tr>';
-}
->>>>>>> 6ff55f2fd43581309abfa08281b2ecedbb29051a
 echo '</tbody></table>';
 
 
