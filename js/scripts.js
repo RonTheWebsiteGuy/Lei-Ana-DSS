@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(document).ready(function() {
 
 	$('.edit-program').click(function() {
@@ -42,8 +41,6 @@ Table of Contents
 
 */
 
-//	1. CRUD
-//	1.1 Students
 ///~~~~~~~~~~~~~~~~~~~~~ students-master.php ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 $(document).ready(function() {
@@ -314,4 +311,3 @@ $(document).ready(function() {
 
 
 });
->>>>>>> 6ff55f2fd43581309abfa08281b2ecedbb29051a
