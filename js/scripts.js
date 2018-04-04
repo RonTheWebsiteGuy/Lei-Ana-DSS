@@ -1,6 +1,3 @@
-$(document).ready(function() {
-	$('.edit-program').click(function() {
-    	success: function(data){
 /*
 Table of Contents
 1. Edit and Save buttons
