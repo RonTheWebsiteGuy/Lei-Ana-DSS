@@ -26,7 +26,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 $sth = $conn->prepare('SELECT * FROM Majors');
 $sth->execute();
 
-	
+
 ?>
 
 <!--<form action="course.php" method="get">
@@ -63,10 +63,26 @@ echo '<table id="programs">';
 echo '<thead><tr><th>Program ID</th><th>Program Name</th><th></th></tr></thead><tbody>';
 
 foreach ($sth as $item) {
+<<<<<<< HEAD
 	echo '<tr><td class="programid"><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td><td class="programname">'.$item['Mname'].'</a></td><td><button class="edit-program">edit</button></td></tr>';
 }	
 	echo '<tr><td class="pid"><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td><td class="Mname">'.$item['Mname'].'</a></td>';
   echo '<td><button class="edit-program">Edit</button> <button class="remove-program">Remove</button> <button class="save-program hideit">Save</button> <button class="cancel-program hideit">Cancel</button></td></tr>';
+=======
+//<<<<<<< HEAD Ron's code.  Determine which is better
+//	echo '<tr><td class="programid"><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td><td class="programname">'.$item['Mname'].'</a></td><td><button class="edit-program">edit</button></td></tr>';
+//}
+
+	echo '<tr>
+    <td class="pid"><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td>
+    <td class="Mname">'.$item['Mname'].'</a></td>';
+  echo '<td><button class="edit-program">Edit</button>
+        <button class="remove-program">Remove</button>
+        <button class="save-program hideit">Save</button>
+        <button class="cancel-program hideit">Cancel</button></td>
+        </tr>';
+}
+>>>>>>> e4f98fa0621c5bfa675493c44697ee1dc679f90d
 
 echo '</tbody></table>';
 
