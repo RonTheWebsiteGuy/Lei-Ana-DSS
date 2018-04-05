@@ -13,11 +13,8 @@ nav ul li a { padding: 5px 10px; }
 #footer { text-align:center; padding:1em; }
 
 
-<<<<<<< HEAD
-button { padding: 5px 1em; border-radius:0 ; cursor:pointer;}]
+button { padding: 5px 1em; border-radius:0 ; cursor:pointer;}
 
 input[type="text"] { width:100%; }
-=======
-.hideit { display:none}  
-.remove-student:hover { cursor: not-allowed}
->>>>>>> 6ff55f2fd43581309abfa08281b2ecedbb29051a
+.hideit { display:none }  
+.remove-student:hover, .remove-term:hover { cursor: not-allowed}

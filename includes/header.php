@@ -16,12 +16,12 @@ Structure: not responsive, 960px grid
 <meta name="robots" content="noindex, nofollow">
 <!-- dynamic title below -->
 <title><?php echo $title; ?></title>
-<!-- general, user customized stylesheet-->
-<link rel="stylesheet" href="css/style.css">
 <!-- stylesheet for our grid system 960px -->
 <link rel="stylesheet" href="css/960_12_col.css">
 <!-- data tables CSS-->
 <link rel="stylesheet" href="css/datatables.min.css">
+<!-- general, user customized stylesheet-->
+<link rel="stylesheet" href="css/style.css">
 <script src="js/jquery-1.7.2.min.js"></script>
 <!-- this will be the primary place to make scripts to keep our <head> clean-->
 <script src="js/scripts.js"></script>

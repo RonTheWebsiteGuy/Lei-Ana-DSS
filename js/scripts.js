@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 $(document).ready(function() {
 
 	$('.edit-program').click(function() {
@@ -31,7 +31,7 @@ $('body').on('click','.save-program',function() {
 	});
 });
 
-=======
+
 /*
 Table of Contents
 1. CRUD
@@ -44,7 +44,7 @@ Table of Contents
 
 //	1. CRUD
 //	1.1 Students
-///~~~~~~~~~~~~~~~~~~~~~ students-master.php ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~ students-master.php ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 $(document).ready(function() {
 	/////////////////////////////////EDIT STUDENT/////////////////////////
@@ -204,7 +204,7 @@ $(document).ready(function() {
 
 
 	//1.3
-	/////////////////////////////////EDIT Course/////////////////////////
+	//=============================EDIT Course===========================
 	$('.edit-course').click(function() {
 			//get original data
 			var x = $(this).closest("tr").find(".cname").text();
@@ -217,7 +217,7 @@ $(document).ready(function() {
 			$(this).parent().children(".save-course, .cancel-course").removeClass("hideit");
 	});
 
-	////////////////////////////////SAVE Course BUTTON///////////////////////////////
+	//=========================SAVE Course BUTTON=====================
 	$('.save-course').click(function() {
 		//	ajax post function
 		$.ajax({
@@ -253,7 +253,7 @@ $(document).ready(function() {
 	});
 
 	//1.4
-	/////////////////////////////////EDIT Individual Course/////////////////////////
+	//==================EDIT Individual Course==================
 	$('.edit-icourse').click(function() {
 			//get original data
 			var w = $(this).closest("tr").find(".cname").text();
@@ -270,7 +270,7 @@ $(document).ready(function() {
 			$(this).parent().children(".save-icourse, .cancel-icourse").removeClass("hideit");
 	});
 
-	////////////////////////////////SAVE Individual Course BUTTON///////////////////////////////
+	//-=======================SAVE Individual Course BUTTON==========================
 	$('.save-course').click(function() {
 		//	ajax post function
 		$.ajax({
@@ -314,4 +314,73 @@ $(document).ready(function() {
 
 
 });
->>>>>>> 6ff55f2fd43581309abfa08281b2ecedbb29051a
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////TERMS//////////////////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function() {
+	//========================= EDIT TERM ==========================
+	$(".edit-term").click(function() {
+		
+			//get original data
+			var x = $(this).closest("tr").find(".termid").text();
+			var y = $(this).closest("tr").find(".termname").text();
+			
+			//add inputs, with original data values
+			$(this).closest("tr").find(".termid").append('<input type="text" value="' + x +'">');
+			$(this).closest("tr").find(".termname").append('<input type="text" value="' + y +'">');
+			
+			//show and hide buttons
+			$(this).parent().children(".edit-term, .remove-term").addClass("hideit");
+			$(this).parent().children(".save-term, .cancel-term").removeClass("hideit");
+	});
+
+//====================== CANCEL STUDENT=====================
+		$('.cancel-term').click(function() {
+			//hide inputs
+			$(this).closest("tr").find("input").hide();
+			
+			//show and hide buttons
+			$(this).parent().children(".edit-term, .remove-term").removeClass("hideit");
+			$(this).parent().children(".save-term, .cancel-term").addClass("hideit");
+	});
+	
+
+
+////////////////////////////////SAVE TERM///////////////////////////////
+	$('.save-term').click(function() {
+		//	ajax post function
+		$.ajax({
+			url: 'processing/edit-term.php',
+			type: "POST",
+			data: {
+				//locate data fields
+				termid : $(this).closest("tr").find(".termid input").val(),
+				termname : $(this).closest("tr").find(".termname input").val()
+			},
+			success:function(data) {
+				alert("successful");
+			},
+			error: function() {
+				alert("error ajax");
+			}
+      });
+	
+	//do this after...search and replace, remove and add back buttons
+	var x = $(this).closest("tr").find(".termid input").val();
+	var y = $(this).closest("tr").find(".termname input").val();
+	$(this).closest("tr").find(".termid").text(x);
+	$(this).closest("tr").find(".termname").text(y);
+
+	$(this).parent().children(".edit-term, .cancel-term").addClass("hideit");
+	$(this).parent().children(".edit-term, .remove-term").removeClass("hideit");
+
+	});
+
+
+	
+	});
+
