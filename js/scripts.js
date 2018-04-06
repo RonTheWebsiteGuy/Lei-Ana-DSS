@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 $(document).ready(function() {
 
@@ -58,19 +59,42 @@ $(document).ready(function() {
 
 	//1.1
 	/////////////////////////////////EDIT STUDENT/////////////////////////
+=======
+$(document).ready(function() {
+
+
+
+
+	/////////////////////////////////EDIT STUDENT/////////////////////////	
+>>>>>>> parent of 80ebcad... finalize student CRUD
 	$('.edit-student').click(function() {
 			//get original data
 			var x = $(this).closest("tr").find(".lname").text();
 			var y = $(this).closest("tr").find(".fname").text();
 			//add inputs
 			$(this).closest("tr").find(".lname").append('<input type="text" value="' + x +'">');
+<<<<<<< HEAD
 			$(this).closest("tr").find(".fname").append('<input type="text" value="' + y +'">');
 
+=======
+			$(this).closest("tr").find(".fname").append('<input type="text" value="' + y +'">'); 
+			
+>>>>>>> parent of 80ebcad... finalize student CRUD
 			$(this).parent().children().addClass("hideit");
 			$(this).parent().children(".save-student, .cancel-student").removeClass("hideit");
 	});
 
+<<<<<<< HEAD
   ////////////////////////////////SAVE STUDENT BUTTON///////////////////////////////
+=======
+	
+	
+	
+	
+	
+	
+	////////////////////////////////SAVE BUTTON///////////////////////////////
+>>>>>>> parent of 80ebcad... finalize student CRUD
 	$('.save-student').click(function() {
 		//	ajax post function
 		$.ajax({
@@ -97,9 +121,15 @@ $(document).ready(function() {
 	//do this after...search and replace, remove and add back buttons
 	var x = $(this).closest("tr").find(".lname input").val();
 	var y = $(this).closest("tr").find(".fname input").val();
+<<<<<<< HEAD
 	$(this).closest("tr").find(".lname").text(x);
 	$(this).closest("tr").find(".fname").text(y);
 
+=======
+	$(this).closest("tr").find(".lname").text(x); 
+	$(this).closest("tr").find(".fname").text(y); 
+				
+>>>>>>> parent of 80ebcad... finalize student CRUD
 	$(this).parent().children(".save-student, .cancel-student").addClass("hideit");
 	$(this).parent().children(".edit-student, .remove-student").removeClass("hideit");
 
@@ -115,6 +145,7 @@ $(document).ready(function() {
 			$(this).closest("tr").find(".Mname").append('<input type="text" value="' + x +'">');
 			$(this).closest("tr").find(".pid").append('<input type="text" value="' + y +'">');
 
+<<<<<<< HEAD
 			$(this).parent().children().addClass("hideit");
 			$(this).parent().children(".save-program, .cancel-program").removeClass("hideit");
 	});
@@ -298,6 +329,16 @@ $(document).ready(function() {
 			$(this).parent().children(".edit-term, .remove-term").removeClass("hideit");
 			$(this).parent().children(".save-term, .cancel-term").addClass("hideit");
 	});
+=======
+	
+	
+	
+	
+	
+	
+	
+	
+>>>>>>> parent of 80ebcad... finalize student CRUD
 	
 
 

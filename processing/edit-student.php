@@ -6,11 +6,11 @@ include("../includes/conn.php");
 $sid =  $_POST['sid'];
 $lname = $_POST['lname'];
 $fname = $_POST['fname'];
-$majorid = $_POST['majorid'];
+
 
 
 // sql query
-$sth = $conn->prepare("UPDATE Students SET Fname = '" . $fname . "', Lname = '" . $lname . "', MajorID = '" .$majorid. "' WHERE StudentID = ". $sid );
+$sth = $conn->prepare("UPDATE Students SET Fname = '" . $fname . "', Lname = '" . $lname . "' WHERE StudentID = ". $sid );
 $sth->execute();
 
 
