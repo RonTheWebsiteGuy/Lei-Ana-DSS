@@ -28,7 +28,6 @@ foreach ($sth as $item) {
 	echo '<td class="sid"><a href="student.php?id='.$item['StudentID'].'">'. $item['StudentID'] .'</td>';
 	echo '<td class="lname">'. $item['Lname'] .'</td>';
 	echo '<td class="fname">'. $item['Fname'] .'</td>';
-<<<<<<< HEAD
 	echo '<td class="majorid"><span>'. $item['MajorID'] .'</span><br><select class="hideit">';
 
 	foreach ($maj as $item2) {
@@ -37,10 +36,9 @@ foreach ($sth as $item) {
 
 	echo '</select></td>';
 	//echo '<td>'. $item['ConcentrationID']. '</td>';
-=======
-	echo '<td>'. $item['MajorID'] .'</td>';
+	//echo '<td>'. $item['MajorID'] .'</td>';
 	echo '<td>'. $item['ConcentrationID']. '</td>';
->>>>>>> parent of 80ebcad... finalize student CRUD
+//>>>>>>> parent of 80ebcad... finalize student CRUD
 	echo '<td><button class="edit-student">Edit</button> <button class="remove-student">Remove</button> <button class="save-student hideit">Save</button> <button class="cancel-student hideit">Cancel</button></td>';
 	echo '</tr>';
 }
@@ -62,23 +60,11 @@ foreach ($sth as $item) {
 
 
 
-
-<<<<<<< HEAD
-
-
-
-=======
-	
-} catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
 $conn = null;
->>>>>>> parent of 80ebcad... finalize student CRUD
+//>>>>>>> parent of 80ebcad... finalize student CRUD
 echo "</tbody>";
 echo "</table>";
 ?>
-
-<<<<<<< HEAD
 
 <h3>Add Student</h3>
 <div class="container_12">
@@ -114,6 +100,5 @@ echo "</table>";
 } ?>
 
 <?php  include('includes/footer.php'); ?>
-=======
+
 <?php include('includes/footer.php'); ?>
->>>>>>> parent of 80ebcad... finalize student CRUD

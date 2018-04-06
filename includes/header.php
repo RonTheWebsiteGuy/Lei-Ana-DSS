@@ -25,6 +25,7 @@ Structure: not responsive, 960px grid
 <script src="js/jquery-1.7.2.min.js"></script>
 <!-- this will be the primary place to make scripts to keep our <head> clean-->
 <script src="js/scripts.js"></script>
+<script src="js/scripts2.js"></script>
 <!-- data tables js-->
 <script src="js/datatables.min.js"></script>
 

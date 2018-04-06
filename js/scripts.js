@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 $(document).ready(function() {
 
 	$('.edit-program').click(function() {
@@ -34,8 +31,6 @@ $('body').on('click','.save-program',function() {
 });
 
 
-=======
->>>>>>> e4f98fa0621c5bfa675493c44697ee1dc679f90d
 /*
 Table of Contents
 1. Edit and Save buttons
@@ -46,47 +41,35 @@ Table of Contents
 
 */
 
-<<<<<<< HEAD
 //	1. CRUD
 //	1.1 Students
 //~~~~~~~~~~~~~~~~~~~~~ students-master.php ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-=======
->>>>>>> e4f98fa0621c5bfa675493c44697ee1dc679f90d
-$(document).ready(function() {
 
 
 
 	//1.1
 	/////////////////////////////////EDIT STUDENT/////////////////////////
-=======
 $(document).ready(function() {
 
 
 
 
 	/////////////////////////////////EDIT STUDENT/////////////////////////	
->>>>>>> parent of 80ebcad... finalize student CRUD
 	$('.edit-student').click(function() {
 			//get original data
 			var x = $(this).closest("tr").find(".lname").text();
 			var y = $(this).closest("tr").find(".fname").text();
 			//add inputs
 			$(this).closest("tr").find(".lname").append('<input type="text" value="' + x +'">');
-<<<<<<< HEAD
 			$(this).closest("tr").find(".fname").append('<input type="text" value="' + y +'">');
 
-=======
 			$(this).closest("tr").find(".fname").append('<input type="text" value="' + y +'">'); 
 			
->>>>>>> parent of 80ebcad... finalize student CRUD
-			$(this).parent().children().addClass("hideit");
+		$(this).parent().children().addClass("hideit");
 			$(this).parent().children(".save-student, .cancel-student").removeClass("hideit");
 	});
 
-<<<<<<< HEAD
   ////////////////////////////////SAVE STUDENT BUTTON///////////////////////////////
-=======
 	
 	
 	
@@ -94,7 +77,6 @@ $(document).ready(function() {
 	
 	
 	////////////////////////////////SAVE BUTTON///////////////////////////////
->>>>>>> parent of 80ebcad... finalize student CRUD
 	$('.save-student').click(function() {
 		//	ajax post function
 		$.ajax({
@@ -121,20 +103,22 @@ $(document).ready(function() {
 	//do this after...search and replace, remove and add back buttons
 	var x = $(this).closest("tr").find(".lname input").val();
 	var y = $(this).closest("tr").find(".fname input").val();
-<<<<<<< HEAD
 	$(this).closest("tr").find(".lname").text(x);
 	$(this).closest("tr").find(".fname").text(y);
 
-=======
 	$(this).closest("tr").find(".lname").text(x); 
 	$(this).closest("tr").find(".fname").text(y); 
 				
->>>>>>> parent of 80ebcad... finalize student CRUD
 	$(this).parent().children(".save-student, .cancel-student").addClass("hideit");
 	$(this).parent().children(".edit-student, .remove-student").removeClass("hideit");
 
 	});
 
+	
+});
+
+$(document).ready(function() {	
+	
 	//1.2
 	/////////////////////////////////EDIT Program/////////////////////////
 	$('.edit-program').click(function() {
@@ -145,7 +129,6 @@ $(document).ready(function() {
 			$(this).closest("tr").find(".Mname").append('<input type="text" value="' + x +'">');
 			$(this).closest("tr").find(".pid").append('<input type="text" value="' + y +'">');
 
-<<<<<<< HEAD
 			$(this).parent().children().addClass("hideit");
 			$(this).parent().children(".save-program, .cancel-program").removeClass("hideit");
 	});
@@ -282,20 +265,8 @@ $(document).ready(function() {
 
 	$(this).parent().children(".save-icourse, .cancel-icourse").addClass("hideit");
 	$(this).parent().children(".edit-icourse, .remove-icourse").removeClass("hideit");
-
 	});
-
-
-
-
-
-
-
-
-
-
 });
-<<<<<<< HEAD
 
 
 
@@ -329,7 +300,6 @@ $(document).ready(function() {
 			$(this).parent().children(".edit-term, .remove-term").removeClass("hideit");
 			$(this).parent().children(".save-term, .cancel-term").addClass("hideit");
 	});
-=======
 	
 	
 	
@@ -338,7 +308,6 @@ $(document).ready(function() {
 	
 	
 	
->>>>>>> parent of 80ebcad... finalize student CRUD
 	
 
 
@@ -374,7 +343,5 @@ $(document).ready(function() {
 
 
 	
-	});
+});
 
-=======
->>>>>>> e4f98fa0621c5bfa675493c44697ee1dc679f90d
