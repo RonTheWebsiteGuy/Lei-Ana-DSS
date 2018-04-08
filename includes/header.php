@@ -16,21 +16,22 @@ Structure: not responsive, 960px grid
 <meta name="robots" content="noindex, nofollow">
 <!-- dynamic title below -->
 <title><?php echo $title; ?></title>
-<!-- general, user customized stylesheet-->
-<link rel="stylesheet" href="css/style.css">
 <!-- stylesheet for our grid system 960px -->
 <link rel="stylesheet" href="css/960_12_col.css">
 <!-- data tables CSS-->
 <link rel="stylesheet" href="css/datatables.min.css">
+<!-- general, user customized stylesheet-->
+<link rel="stylesheet" href="css/style.css">
 <script src="js/jquery-1.7.2.min.js"></script>
 <!-- this will be the primary place to make scripts to keep our <head> clean-->
 <script src="js/scripts.js"></script>
+<script src="js/scripts2.js"></script>
 <!-- data tables js-->
 <script src="js/datatables.min.js"></script>
 
-<?php 
+<?php
 // LOAD tHIS IF IT'S THE HOME PAGE
-if ( basename($_SERVER['PHP_SELF']) == 'index.php' ) {  
+if ( basename($_SERVER['PHP_SELF']) == 'index.php' ) {
 
 //no need to set connection since include conn.php is b efore header
 	?>
@@ -44,10 +45,10 @@ if ( basename($_SERVER['PHP_SELF']) == 'index.php' ) {
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-<?php 
+<?php
 $sth6 = $conn->prepare("SELECT Students.MajorID, COUNT(*) FROM Students JOIN Majors ON Students.MajorID = Majors.MajorID GROUP BY MajorID;");
 $sth6->execute();
-			
+
 			echo "['Program', 'Students Enrolled'],";
 			foreach ($sth6 as $item) {
 				$a = $item['MajorID'];
@@ -68,7 +69,7 @@ $sth6->execute();
 
         chart.draw(data, options);
       }
-</script>	
+</script>
 <?php } ?>
 
 

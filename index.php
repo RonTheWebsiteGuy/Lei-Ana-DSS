@@ -50,7 +50,7 @@ $result5 = $sth5->fetchColumn();
 		Students: <?php echo $result; ?><br>
 		Programs: <?php echo $result2; ?><br>
 		Courses: <?php echo $result3; ?><br>
-		Faculty: <?php echo $result4; ?><br>
+		Faculty: <?php //echo $result4; ?><br>
 		Terms: <?php echo $result5; ?><br>
 	</div>
 	<div class="grid_6">

@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-include("../includes/conn.php"); 
+include("../includes/conn.php");
 
 
 
@@ -24,4 +24,3 @@ $conn = null;
 catch(PDOException $e) {
 	echo "Connection failed: " . $e->getMessage();
 }
-

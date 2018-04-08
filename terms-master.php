@@ -15,7 +15,7 @@ jQuery(document).ready( function () {
 <?php  //Attempt to pull table from db and display
 echo "<table id='terms'>";
 echo "<thead>";
-echo '<tr><th>Term ID</th><th>Term Name</th></tr>';
+echo '<tr><th>Term ID</th><th>Term Name</th><th></th></tr>';
 echo "</thead>";
 echo "<tbody>";
 
@@ -25,8 +25,9 @@ $sth->execute();
 
 foreach ($sth as $item) {
 	echo '<tr>';
-	echo '<td><a href="term.php?id='.$item["TermID"].'">'. $item['TermID'] .'</a></td>';
-	echo '<td>'. $item['Term']. '</td>';
+	echo '<td class="termid"><a href="term.php?id='.$item["TermID"].'">'. $item['TermID'] .'</a></td>';
+	echo '<td class="termname">'. $item['Term']. '</td>';
+	echo '<td><button class="edit-term">Edit</button> <button class="remove-term">Remove</button><button class="save-term hideit">Save</button><button class="cancel-term hideit">Cancel</button>';
 	echo '</tr>';
 }
 
