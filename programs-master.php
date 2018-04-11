@@ -13,12 +13,20 @@ jQuery(document).ready( function () {
 
 
 
-<?php
+<?php //Attempt to pull table from db and display
 
-
+echo '<table id="programs">';
+echo '<thead>
+        <tr>
+          <th>Program ID</th>
+          <th>Program Name</th>
+          <th></th>
+        </tr>
+      </thead>
+    <tbody>';
 
 try {
-
+//Gather all Major Information
 $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
@@ -26,66 +34,30 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 $sth = $conn->prepare('SELECT * FROM Majors');
 $sth->execute();
 
+//Generate table
+foreach ($sth as $item) {
+  echo '<tr>';
+  echo '<td class="pid"><a href="program.php?id='.$item['MajorID'].'">'. $item['MajorID'] .'</td>';
+  echo '<td class="Mname">'. $item['Mname'] .'</td>';
+  echo '<td><button class="edit-program">Edit</button> <button class="remove-program">Remove</button> <button class="save-program hideit">Save</button> <button class="cancel-program hideit">Cancel</button></td>';
+  echo '</tr>';
+}
 
+  echo '</tbody>
+        </table>';
 ?>
-
-<!--<form action="course.php" method="get">
-	View Course Details:
-	<select name="id">
-		<?php
-		//foreach ($sth as $item) {
-		//	echo '<option name="id">'.$item[ClassID].'</option>';
-		//};
-		?>
-	</select>
-	<input type="submit" value="Look it up!">
-</form>-->
-
+<h3>Add Program</h3>
+<div class="container_12">
+	<div class="grid_8">
+		Program Name</br>
+		<input type="text" id="addMname">
+	</div>
+	<div class="grid_4">
+		<button id="add-program">ADD PROGRAM</button>
+	</div>
+</div>
 
 <?php
-
-
-// USE THE BELOW TO DEBUG AND VIEW YOUR DB DATA AS AN ARRAY //
-//$array = $sth->fetchAll(PDO::FETCH_OBJ);
-//echo "<pre>";
-//print_r($array);
-//echo "</pre>";
-
-
-/*
-[MajorID] => MSIS
-[ConcentrationID] =>
-[Mname] => Master of Science in Information Systems
-*/
-
-
-echo '<table id="programs">';
-echo '<thead><tr><th>Program ID</th><th>Program Name</th><th></th></tr></thead><tbody>';
-
-foreach ($sth as $item) {
-<<<<<<< HEAD
-	echo '<tr><td class="programid"><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td><td class="programname">'.$item['Mname'].'</a></td><td><button class="edit-program">edit</button></td></tr>';
-}	
-	echo '<tr><td class="pid"><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td><td class="Mname">'.$item['Mname'].'</a></td>';
-  echo '<td><button class="edit-program">Edit</button> <button class="remove-program">Remove</button> <button class="save-program hideit">Save</button> <button class="cancel-program hideit">Cancel</button></td></tr>';
-=======
-//<<<<<<< HEAD Ron's code.  Determine which is better
-//	echo '<tr><td class="programid"><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td><td class="programname">'.$item['Mname'].'</a></td><td><button class="edit-program">edit</button></td></tr>';
-//}
-
-	echo '<tr>
-    <td class="pid"><a href="program.php?id='.$item['MajorID'].'">'.$item['MajorID'].'</td>
-    <td class="Mname">'.$item['Mname'].'</a></td>';
-  echo '<td><button class="edit-program">Edit</button>
-        <button class="remove-program">Remove</button>
-        <button class="save-program hideit">Save</button>
-        <button class="cancel-program hideit">Cancel</button></td>
-        </tr>';
-}
->>>>>>> e4f98fa0621c5bfa675493c44697ee1dc679f90d
-
-echo '</tbody></table>';
-
 
 } catch(PDOException $e) {
 	echo "Connection failed: " . $e->getMessage();
