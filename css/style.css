@@ -1,4 +1,12 @@
 body { background: #eee; }
+#main { background: white; padding:1em;}
+
+#footer { text-align:center; padding:1em; }
+
+
+button { padding: 5px 1em; border-radius:0 ; cursor:pointer;}
+
+input[type="text"] { width:100%; }
 
 
 
@@ -8,17 +16,11 @@ nav ul li a { padding: 5px 10px; }
 
 
 
-#main { background: white; padding:1em;}
-
-#footer { text-align:center; padding:1em; }
-
-
-<<<<<<< HEAD
-button { padding: 5px 1em; border-radius:0 ; cursor:pointer;}
-
-input[type="text"] { width:100%; }
 .hideit { display:none }  
 .remove-student:hover, .remove-term:hover { cursor: not-allowed}
-=======
-.hideit { display:none}  
->>>>>>> parent of 80ebcad... finalize student CRUD
+
+table td {   text-overflow: ellipsis;}
+
+
+/*=============  STUDENT SINGLE ========*/
+.student-single span { font-weight:bold; display:block }
