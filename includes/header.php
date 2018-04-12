@@ -85,7 +85,6 @@ $sth6->execute();
 		<li><a href="index.php">Home</a></li>
 		<li><a href="programs-master.php">Programs</a></li>
 		<li><a href="programs-requirements.php">Program Requirements</a></li>
-		<li><a href="faculty-master.php">Faculty</a></li>
 		<li><a href="students-master.php">Students</a></li>
 		<li><a href="courses-master.php">Courses</a></li>
 		<li><a href="courses-schedule.php">Course Schedule</a></li>

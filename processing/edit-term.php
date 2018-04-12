@@ -9,7 +9,7 @@ $termname = $_POST['termname'];
 
 
 // sql query
-$sth = $conn->prepare("UPDATE Terms SET TermID = '" . $termid . "', Term = '" . $termname . "' WHERE ClassID = ". $cid);
+$sth = $conn->prepare("UPDATE Terms SET Term = '" . $termname . "' WHERE TermID = ". $termid);
 $sth->execute();
 
 

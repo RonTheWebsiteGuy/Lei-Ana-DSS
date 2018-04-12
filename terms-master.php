@@ -25,7 +25,7 @@ $sth->execute();
 
 foreach ($sth as $item) {
 	echo '<tr>';
-	echo '<td class="termid"><a href="term.php?id='.$item["TermID"].'">'. $item['TermID'] .'</a></td>';
+	echo '<td class="termid" data-id="'.$item["TermID"].'"><a href="term.php?id='.$item["TermID"].'">'. $item['TermID'] .'</a></td>';
 	echo '<td class="termname">'. $item['Term']. '</td>';
 	echo '<td><button class="edit-term">Edit</button> <button class="remove-term">Remove</button><button class="save-term hideit">Save</button><button class="cancel-term hideit">Cancel</button>';
 	echo '</tr>';
