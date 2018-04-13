@@ -18,7 +18,6 @@ jQuery(document).ready( function () {
 echo '<table id="programs">';
 echo '<thead>
         <tr>
-          <th>Program ID</th>
           <th>Program Name</th>
           <th></th>
         </tr>
@@ -37,8 +36,8 @@ $sth->execute();
 //Generate table
 foreach ($sth as $item) {
   echo '<tr>';
-  echo '<td class="pid"><a href="program.php?id='.$item['MajorID'].'">'. $item['MajorID'] .'</td>';
-  echo '<td class="Mname">'. $item['Mname'] .'</td>';
+  //echo '<td class="pid"><a href="program.php?id='.$item['MajorID'].'">'. $item['MajorID'] .'</td>';
+  echo '<td class="Mname"><a href="program.php?id='.$item['MajorID'].'">'. $item['Mname'] .'</td>';
   echo '<td><button class="edit-program">Edit</button> <button class="remove-program">Remove</button> <button class="save-program hideit">Save</button> <button class="cancel-program hideit">Cancel</button></td>';
   echo '</tr>';
 }

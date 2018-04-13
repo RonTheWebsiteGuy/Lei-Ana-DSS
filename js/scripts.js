@@ -14,7 +14,7 @@ Table of Contents
 
 
 $(document).ready(function() {
-	
+
 //~~~~~~~~~~~~~~~~~~~~~1.1 EDIT STUDENT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	$('.edit-student').click(function() {
 			//get original data
@@ -26,7 +26,7 @@ $(document).ready(function() {
 			$(this).closest("tr").find(".lname").append('<input type="text" value="' + x +'">');
 			$(this).closest("tr").find(".fname").append('<input type="text" value="' + y +'">');
 			$(this).closest("tr").find(".majselect").removeClass("hideit").val(z);
-			
+
 			$(this).parent().children(".edit-student, .remove-student").addClass("hideit");
 			$(this).parent().children(".save-student, .cancel-student").removeClass("hideit");
 	});
@@ -51,7 +51,7 @@ $(document).ready(function() {
 				alert("error ajax");
 			}
 		});
-		
+
 	//find values of inputs
 	var x = $(this).closest("tr").find(".lname input").val();
 	var y = $(this).closest("tr").find(".fname input").val();
@@ -60,36 +60,36 @@ $(document).ready(function() {
 	$(this).closest("tr").find(".lname").text(x);
 	$(this).closest("tr").find(".fname").text(y);
 	$(this).closest("tr").find(".majorid span").text(z);
-	
+
 	//hide inputs
 	$(this).closest("tr").find(".lname input").remove();
 	$(this).closest("tr").find(".fname input").remove();
 	$(this).closest("tr").find(".majselect").addClass("hideit");
-	
+
 	//switch out buttons
 	$(this).parent().children(".save-student, .cancel-student").addClass("hideit");
 	$(this).parent().children(".edit-student, .remove-student").removeClass("hideit");
 
 	});
 
-	
+
 	//~~~~~~~~~~~~1.3 CANCEL STUDENT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	
+
 	$('.cancel-student').click(function() {
-		//hide inputs 
+		//hide inputs
 		$(this).closest("tr").find(".lname input").remove();
 		$(this).closest("tr").find(".fname input").remove();
 		$(this).closest("tr").find(".majselect").addClass("hideit");
-		
-		
+
+
 		$(this).parent().children(".save-student, .cancel-student").addClass("hideit");
 		$(this).parent().children(".edit-student, .remove-student").removeClass("hideit");
-		
+
 	});
-	
-	
+
+
 	//~~~~~~~~~~~~~~1.4 ADD STUDENT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	
+
 	$('#add-student').click(function() {
 	//	ajax post function
 		$.ajax({
@@ -113,117 +113,27 @@ $(document).ready(function() {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(document).ready(function() {	
-	
-	//1.2
-	/////////////////////////////////EDIT Program/////////////////////////
-	$('.edit-program').click(function() {
-			//get original data
-			var x = $(this).closest("tr").find(".Mname").text();
-			var y = $(this).closest("tr").find(".pid").text();
-			//add inputs
-			$(this).closest("tr").find(".Mname").append('<input type="text" value="' + x +'">');
-			$(this).closest("tr").find(".pid").append('<input type="text" value="' + y +'">');
-
-			$(this).parent().children().addClass("hideit");
-			$(this).parent().children(".save-program, .cancel-program").removeClass("hideit");
-	});
-
-  ////////////////////////////////SAVE Program BUTTON///////////////////////////////
-	$('.save-program').click(function() {
-		//	ajax post function
-		$.ajax({
-			url: 'processing/edit-program.php',
-			type: "POST",
-			data: {
-				//locate data fields
-				pid : $(this).closest("tr").find(".pid").text(),
-				mname : $(this).closest("tr").find(".mname input").val(),
-			},
-			success:function(data) {
-				alert("successful");
-
-
-
-			},
-			error: function() {
-				alert("error ajax");
-			}
-
-
-      });
-	//do this after...search and replace, remove and add back buttons
-	var x = $(this).closest("tr").find(".mname input").val();
-	var y = $(this).closest("tr").find(".pid input").val();
-	$(this).closest("tr").find(".mname").text(x);
-	$(this).closest("tr").find(".pid").text(y);
-
-	$(this).parent().children(".save-program, .cancel-program").addClass("hideit");
-	$(this).parent().children(".edit-program, .remove-program").removeClass("hideit");
-
-	});
-
-
-	//1.3
-	//=============================EDIT Course===========================
-/*	$('.edit-course').click(function() {
-			//get original data
-			var x = $(this).closest("tr").find(".cname").text();
-			//var y = $(this).closest("tr").find(".crn").text();
-			//add inputs
-			$(this).closest("tr").find(".cname").append('<input type="text" value="' + x +'">');
-		//	$(this).closest("tr").find(".crn").append('<input type="text" value="' + y +'">');
-
-			$(this).parent().children().addClass("hideit");
-			$(this).parent().children(".save-course, .cancel-course").removeClass("hideit");
-	});
-
-	
-*/
-
-
-});
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////TERMS//////////////////////////////////////////////////////////////////////////////////////////////
 $(document).ready(function() {
-	
+
 	//========================= 3.1 EDIT TERM ==========================
 	$(".edit-term").click(function() {
-		
+
 			//get original data
 			var x = $(this).closest("tr").find(".termid").text();
 			var y = $(this).closest("tr").find(".termname").text();
-			
+
 			//add inputs, with original data values
 			//$(this).closest("tr").find(".termid").append('<input type="text" value="' + x +'">');
 			$(this).closest("tr").find(".termname").append('<input type="text" value="' + y +'">');
-			
+
 			//show and hide buttons
 			$(this).parent().children(".edit-term, .remove-term").addClass("hideit");
 			$(this).parent().children(".save-term, .cancel-term").removeClass("hideit");
 	});
-	
-	
-	
+
+
+
 //================================      3.2   SAVE TERM================================
 	$('.save-term').click(function() {
 		//	ajax post function
@@ -241,10 +151,10 @@ $(document).ready(function() {
 			error: function() {
 				alert("error ajax");
 			}
-			
-			
+
+
       });
-	
+
 	//do this after...search and replace, remove and add back buttons
 	//var x = $(this).closest("tr").find(".termid input").val();
 	var y = $(this).closest("tr").find(".termname input").val();
@@ -260,24 +170,23 @@ $(document).ready(function() {
 		$('.cancel-term').click(function() {
 			//hide inputs
 			$(this).closest("tr").find("input").hide();
-			
+
 			//show and hide buttons
 			$(this).parent().children(".edit-term, .remove-term").removeClass("hideit");
 			$(this).parent().children(".save-term, .cancel-term").addClass("hideit");
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 
 
 
-	
+
+
+
+
+
+
+
+
+
+
 });
-
