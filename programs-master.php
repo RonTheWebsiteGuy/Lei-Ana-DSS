@@ -30,13 +30,13 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 
-$sth = $conn->prepare('SELECT * FROM Majors');
+$sth = $conn->prepare('SELECT * FROM Majors WHERE Status=0');
 $sth->execute();
 
 //Generate table
 foreach ($sth as $item) {
   echo '<tr>';
-  //echo '<td class="pid"><a href="program.php?id='.$item['MajorID'].'">'. $item['MajorID'] .'</td>';
+  echo '<td class="pid"><a href="program.php?id='.$item['MajorID'].'">'. $item['MajorID'] .'</td>';
   echo '<td class="Mname"><a href="program.php?id='.$item['MajorID'].'">'. $item['Mname'] .'</td>';
   echo '<td><button class="edit-program">Edit</button> <button class="remove-program">Remove</button> <button class="save-program hideit">Save</button> <button class="cancel-program hideit">Cancel</button></td>';
   echo '</tr>';

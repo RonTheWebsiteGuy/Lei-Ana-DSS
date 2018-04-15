@@ -82,6 +82,34 @@ $(document).ready(function() {
 			});
 		});
 
+		//~~~~~~~~~~~~~~~~~~~~1.5 REMOVE PROGRAM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			$('.remove-program').click(function() {
+				//	ajax post function
+				$.ajax({
+					url: 'processing/remove-program.php',
+					type: "POST",
+					data: {
+						//locate data fields
+						pid : $(this).closest("tr").find(".pid").text(),
+
+					},
+					success:function(data) {
+						alert(data + " successful");
+					},
+					error: function() {
+						alert("error ajax");
+					}
+				});
+
+			//hide inputs
+			$(this).closest("tr").find(".pid input").remove();
+			$(this).closest("tr").find(".Mname input").remove();
+
+			//switch out buttons
+			$(this).parent().children(".save-program, .cancel-program").addClass("hideit");
+			$(this).parent().children(".edit-program, .remove-program").removeClass("hideit");
+
+			});
 
 
 
