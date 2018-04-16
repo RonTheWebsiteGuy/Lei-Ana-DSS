@@ -4,7 +4,13 @@
 
 <h1><?php echo $title; ?></h1>
 
-
+<script>
+jQuery(document).ready( function () {
+    jQuery('#classes').DataTable({
+		paging: false
+	});
+});
+</script>
 
 <?php
 
@@ -18,8 +24,9 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 
 $sth = $conn->prepare("SELECT * FROM Classes WHERE ClassID = '$_GET[id]'");
+$sth2 = $conn->prepare("SELECT * FROM Schedule JOIN Terms ON Schedule.TermID = Terms.TermID WHERE ClassID = '$_GET[id]'   ");
 $sth->execute();
-
+$sth2->execute();
 
 
 
@@ -35,20 +42,62 @@ $sth->execute();
 [Class_Number] => 6400
 [PrereqID] =>
 */
+?>
 
-echo "<table>";
+<div class="info">
 
+<?php 
 foreach($sth as $item) {
-	echo '<tr>';
-	echo '<td>classID</td><td class="cid">'.$item['ClassID'].'</td></tr>';
-	echo '<td>className</td><td class="cname">'.$item['Class_Name'].'</td></tr>';
-	echo '<td>classNumber</td><td class="cnumber">'.$item['Class_Number'].'</td></tr>';
-	echo '<td>prerequisite</td><td class="pid">'.$item['PrereqID'].'</td></tr>';
-	echo '<td>prerequisite</td><td class="crn">CRN Goes Here</td></tr>';
-	echo '<td><button class="edit-icourse">Edit</button> <button class="remove-icourse">Remove</button> <button class="save-icourse hideit">Save</button> <button class="cancel-icourse hideit">Cancel</button></td></tr>';
+	echo '<span>Class Number</span>';
+	echo $item['Class_Number'];
+	echo '<br><br>';
+	
+	echo '<span>Class Name</span>';
+	echo $item['Class_Name'];
+	echo '<br><br>';
+	
+	echo '<span>Note</span>';
+	echo $item['Note'];
+	echo '<br><br>';
+	
 }
 
-echo "</table>";
+
+?>
+</div>
+
+<hr>
+
+<h2>When is this class offered?</h2>
+
+<table id="classes">
+	<thead>
+		<th>Term</th>
+		<th>Term Date</th>
+		<th>Class Time</th>
+		<th>Meeting Day</th>
+		<th>CRN</th>
+	</thead>
+<tbody>
+<?php 
+
+foreach ($sth2 as $item) {
+	echo '<tr>';
+	echo '<td>'. $item['Term'] . '</td>';
+	echo '<td>'. $item['Start'] .' to '. $item['End'] . '</td>';
+
+	echo '<td>'. $item['Start_Time'] .' to '. $item['End_Time'] . '</td>';
+	
+	echo '<td>'. $item['DayOfWeek'] .'</td>';
+	echo '<td>'. $item['CRN'] .'</td>'; 
+	echo '</tr>';
+}
+
+?>
+
+</tbody></table>
+
+<?php 
 
 } catch(PDOException $e) {
 	echo "Connection failed: " . $e->getMessage();
@@ -69,3 +118,4 @@ $conn = NULL; // kill connection data
 
 
 <?php include('includes/footer.php'); ?>
+

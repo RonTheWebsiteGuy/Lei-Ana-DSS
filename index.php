@@ -45,15 +45,14 @@ $result5 = $sth5->fetchColumn();
 <hr>
 
 <div class="container_12">
-	<div class="grid_6">
+	<div class="grid_3">
 		<h2>Basic Stats</h2>
 		Students: <?php echo $result; ?><br>
 		Programs: <?php echo $result2; ?><br>
 		Courses: <?php echo $result3; ?><br>
-		Faculty: <?php //echo $result4; ?><br>
 		Terms: <?php echo $result5; ?><br>
 	</div>
-	<div class="grid_6">
+	<div class="grid_9">
 		<h2>Enrollment Breakdown</h2>
 		<?php
 			foreach ($sth6 as $item) {
@@ -63,7 +62,7 @@ $result5 = $sth5->fetchColumn();
 			}
 
 		?>
-		<div id="piechart" style="width:450px; height:400px"></div>
+		<div id="piechart" style="width:100%; height:500px"></div>
 	</div>
 </div>
 

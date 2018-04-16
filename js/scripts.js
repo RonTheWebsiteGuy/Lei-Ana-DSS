@@ -122,11 +122,16 @@ $(document).ready(function() {
 			//get original data
 			var x = $(this).closest("tr").find(".termid").text();
 			var y = $(this).closest("tr").find(".termname").text();
-
+			var u = $(this).closest("tr").find(".termstart").text();
+			var v = $(this).closest("tr").find(".termend").text(); 
+			
+//			alert( x + y + u + v);
+			
 			//add inputs, with original data values
-			//$(this).closest("tr").find(".termid").append('<input type="text" value="' + x +'">');
 			$(this).closest("tr").find(".termname").append('<input type="text" value="' + y +'">');
-
+			$(this).closest("tr").find(".termstart").append('<input type="date" value="' + u +'">');
+			$(this).closest("tr").find(".termend").append('<input type="date" value="' + v +'">');
+			
 			//show and hide buttons
 			$(this).parent().children(".edit-term, .remove-term").addClass("hideit");
 			$(this).parent().children(".save-term, .cancel-term").removeClass("hideit");
@@ -143,7 +148,9 @@ $(document).ready(function() {
 			data: {
 				//locate data fields
 				termid : $(this).closest("tr").find(".termid").attr("data-id"),
-				termname : $(this).closest("tr").find(".termname input").val()
+				termname : $(this).closest("tr").find(".termname input").val(),
+				termstart : $(this).closest("tr").find(".termstart input").val(),
+				termend : $(this).closest("tr").find(".termend input").val()
 			},
 			success:function(data) {
 				alert(data + "successful");
@@ -156,17 +163,46 @@ $(document).ready(function() {
       });
 
 	//do this after...search and replace, remove and add back buttons
-	//var x = $(this).closest("tr").find(".termid input").val();
 	var y = $(this).closest("tr").find(".termname input").val();
+	var a = $(this).closest("tr").find(".termstart input").val();
+	var b = $(this).closest("tr").find(".termend input").val();
 	//$(this).closest("tr").find(".termid").text(x);
 	$(this).closest("tr").find(".termname").text(y);
-
+	$(this).closest("tr").find(".termstart").text(a);
+	$(this).closest("tr").find(".termend").text(b);
+	
 	$(this).parent().children(".save-term, .cancel-term").addClass("hideit");
 	$(this).parent().children(".edit-term, .remove-term").removeClass("hideit");
 
 	});
 
-//====================== CANCEL STUDENT=====================
+	
+		//~~~~~~~~~~~~~~3.3 ADD TERM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	$('#add-term').click(function() {
+	//	ajax post function
+		$.ajax({
+			url: 'processing/add-term.php',
+			type: "POST",
+			data: {
+				//locate data fields
+				//sid : $("#addsid").val(),
+				termname : $("#addname").val(),
+				termstart : $("#addstart").val(),
+				termend : $("#addend").val()
+			},
+			success:function(data) {
+				alert(data + " successful");
+			},
+			error: function() {
+				alert("error ajax");
+			}
+		});
+	});
+	
+	
+	
+//======================  3.4CANCEL TERM=====================
 		$('.cancel-term').click(function() {
 			//hide inputs
 			$(this).closest("tr").find("input").hide();
@@ -177,16 +213,97 @@ $(document).ready(function() {
 	});
 
 
+});
 
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////////COURSES//////////////////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function() {
+
+	//========================= 4.1 EDIT COURSE  ==========================
+	$(".edit-course").click(function() {
+
+			//get original data
+			var x = $(this).closest("tr").find(".cnum").text();
+			var y = $(this).closest("tr").find(".cname").text();
+			
+			//add inputs, with original data values
+			$(this).closest("tr").find(".cnum").append('<input type="text" value="' + x +'">');
+			$(this).closest("tr").find(".cname").append('<input type="text" value="' + y +'">');
+			
+			//show and hide buttons
+			$(this).parent().children(".edit-course, .remove-course").addClass("hideit");
+			$(this).parent().children(".save-course, .cancel-course").removeClass("hideit");
+	});
 
 
 
+//================================      4.2   SAVE TERM================================
+	$('.save-course').click(function() {
+		//	ajax post function
+		$.ajax({
+			url: 'processing/edit-course.php',
+			type: "POST",
+			data: {
+				//locate data fields
+				cid : $(this).closest("tr").attr("data-id"),
+				cnum : $(this).closest("tr").find(".cnum input").val(),
+				cname : $(this).closest("tr").find(".cname input").val()
+			},
+			success:function(data) {
+				alert(data + "successful");
+			},
+			error: function() {
+				alert("error ajax");
+			}
+      });
 
+	//do this after...search and replace, remove and add back buttons
+	var x = $(this).closest("tr").find(".cnum input").val();
+	var y = $(this).closest("tr").find(".cname input").val();
+	
+	//$(this).closest("tr").find(".termid").text(x);
+	$(this).closest("tr").find(".cnum").text(x);
+	$(this).closest("tr").find(".cname").text(y);
+	
+	$(this).parent().children(".save-course, .cancel-course").addClass("hideit");
+	$(this).parent().children(".edit-course, .remove-course").removeClass("hideit");
 
+	});
 
+	
+		//~~~~~~~~~~~~~~4.3 ADD STUDENT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+	$('#add-course').click(function() {
+	//	ajax post function
+		$.ajax({
+			url: 'processing/add-course.php',
+			type: "POST",
+			data: {
+				//locate data fields
+				cnum : $("#addcnum").val(),
+				cname : $("#addcname").val(),
+			},
+			success:function(data) {
+				alert(data + " successful");
+			},
+			error: function() {
+				alert("error ajax");
+			}
+		});
+	});
+	
+	
+	
+//======================  4.4CANCEL TERM=====================
+		$('.cancel-course').click(function() {
+			//hide inputs
+			$(this).closest("tr").find("input").hide();
+
+			//show and hide buttons
+			$(this).parent().children(".edit-course, .remove-course").removeClass("hideit");
+			$(this).parent().children(".save-course, .cancel-course").addClass("hideit");
+	});
 
 });

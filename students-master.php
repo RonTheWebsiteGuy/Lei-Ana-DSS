@@ -71,23 +71,23 @@ echo "</tbody>";
 echo "</table>";
 ?>
 
-<h3>Add Student</h3>
+<h3 id="add">Add Student</h3>
 <div class="container_12">
 	<div class="grid_2">
 		Student ID<br>
-		<input type="text" id="addsid">
+		<input type="text" id="addsid" required>
 	</div>
 	<div class="grid_2">
 		First Name<br>
-		<input type="text" id="addfname">
+		<input type="text" id="addfname" required>
 	</div>
 	<div class="grid_2">
 		Last Name<br>
-		<input type="text" id="addlname">
+		<input type="text" id="addlname" required>
 	</div>
 	<div class="grid_4">
 		Program Enrolled<br>
-		<select type="select" id="addmajor">
+		<select type="select" id="addmajor" required>
 			<option></option>
 <?php	foreach ($maj as $item2) {
 		echo '<option data-maj="'. $item['MajorID'].'">'.$item2["Mname"].'</option>';

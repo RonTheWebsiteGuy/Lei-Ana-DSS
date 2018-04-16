@@ -6,7 +6,7 @@ jQuery(document).ready( function () {
     jQuery('#courses').DataTable({
     	paging: false
     });
-} );
+});
 </script>
 
 <h1><?php echo $title; ?></h1>
@@ -36,7 +36,7 @@ $sth2->execute();
 	<select name="id">
 		<?php
 		foreach ($sth as $item) {
-			echo '<option name="id">'.$item[ClassID].'</option>';
+			echo '<option name="id">'.$item[Class_Number].'</option>';
 		};
 		?>
 	</select>
@@ -62,11 +62,18 @@ $sth2->execute();
 
 
 echo '<table id="courses">';
-echo '<thead><tr><th>Class ID</th><th>Class Name</th><th>CRN</th><th></th></tr></thead><tbody>';
+echo '<thead><tr><th>Number</th><th>Class Name</th><th></th></tr></thead><tbody>';
 
 foreach ($sth2 as $item) {
-	echo '<tr><td class="cid"><a href="course.php?id='.$item['ClassID'].'">'.$item['ClassID'].'</a></td><td class="cname">'.$item['Class_Name'].'</td><td class="crn">CRN Here</td>';
-  echo '<td><button class="edit-course">Edit</button> <button class="remove-course">Remove</button> <button class="save-course hideit">Save</button> <button class="cancel-course hideit">Cancel</button></td></tr>';
+	echo '<tr data-id="'. $item['ClassID'] . '">';
+	echo '<td class="cnum"><a href="course.php?id='.$item['ClassID'].'">'.$item['Class_Number'].'</a></td>';
+	echo '<td class="cname">'.$item['Class_Name'].'</td>';
+	echo '<td>';
+	echo '<button class="edit-course">Edit</button>';
+	echo '<button class="remove-course">Remove</button>';
+	echo '<button class="save-course hideit">Save</button>'; 
+	echo '<button class="cancel-course hideit">Cancel</button>';
+	echo '</td></tr>';
 }
 echo '</tbody></table>';
 
@@ -77,7 +84,29 @@ echo '</tbody></table>';
 
 
 
+?>
 
+
+
+<h3 id="add">Add Course</h3>
+<div class="container_12">
+	<div class="grid_4">
+		Course Number<br>
+		<input type="text" id="addcnum" required>
+	</div>
+	<div class="grid_4">
+		Course Name<br>
+		<input type="text" id="addcname" required>
+	</div>
+	<div class="grid_2">
+		<button id="add-course">ADD COURSE</button>
+	</div>
+</div>
+
+
+
+
+<?php
 
 
 $conn = NULL; // kill connection data

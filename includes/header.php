@@ -46,12 +46,12 @@ if ( basename($_SERVER['PHP_SELF']) == 'index.php' ) {
 
         var data = google.visualization.arrayToDataTable([
 <?php
-$sth6 = $conn->prepare("SELECT Students.MajorID, COUNT(*) FROM Students JOIN Majors ON Students.MajorID = Majors.MajorID GROUP BY MajorID;");
+$sth6 = $conn->prepare("SELECT Students.MajorID, Majors.Mname, COUNT(*) FROM Students JOIN Majors ON Students.MajorID = Majors.MajorID GROUP BY MajorID;");
 $sth6->execute();
 
 			echo "['Program', 'Students Enrolled'],";
 			foreach ($sth6 as $item) {
-				$a = $item['MajorID'];
+				$a = $item['Mname'];
 				$b = $item['COUNT(*)'];
 
 				echo "['".$a."', ".$b."],\n";
@@ -87,7 +87,7 @@ $sth6->execute();
 		<li><a href="programs-requirements.php">Program Requirements</a></li>
 		<li><a href="students-master.php">Students</a></li>
 		<li><a href="courses-master.php">Courses</a></li>
-		<li><a href="courses-schedule.php">Course Schedule</a></li>
+		<li><a href="courses-schedule.php">Scheduled Classes</a></li>
 		<li><a href="terms-master.php">Terms</a></li>
 		<!--<li><a href="programs.php">Programs</a></li>-->
 		<li><a href="logout.php">Logout</a></li>

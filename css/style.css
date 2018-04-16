@@ -1,12 +1,24 @@
+/*============= STRUCTURE STYLE=================*/
 body { background: #eee; }
 #main { background: white; padding:1em;}
-
 #footer { text-align:center; padding:1em; }
 
 
-button { padding: 5px 1em; border-radius:0 ; cursor:pointer;}
 
+/*============ GENERAL ELEMENT STYLES=============*/
+button { padding: 5px 1em; border-radius:0 ; cursor:pointer;}
 input[type="text"] { width:100%; }
+table td {   text-overflow: ellipsis;}
+select { max-width:100%}	
+
+
+/*============= SPECIAL CLASSES =================*/
+/*.hideit is for special use for our ajax crud*/
+.hideit { display:none }  
+/*this is to disallow removal (this was before our tables had status fields */
+.remove-student:hover, 
+.remove-term:hover , 
+.remove-course:hover { cursor: not-allowed}
 
 
 
@@ -16,11 +28,6 @@ nav ul li a { padding: 5px 10px; }
 
 
 
-.hideit { display:none }  
-.remove-student:hover, .remove-term:hover { cursor: not-allowed}
-
-table td {   text-overflow: ellipsis;}
-
 
 /*=============  STUDENT SINGLE ========*/
-.student-single span { font-weight:bold; display:block }
+.info span, .student-single span { font-weight:bold; display:block; margin-top:1em }
