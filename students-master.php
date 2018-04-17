@@ -20,10 +20,10 @@ echo "</thead>";
 echo "<tbody>";
 
 try {
-//this is for generating data	
-$sth = $conn->prepare("SELECT * FROM Students JOIN Majors ON Students.MajorID = Majors.majorID");
+//this is for generating data
+$sth = $conn->prepare("SELECT * FROM Students JOIN Majors ON Students.MajorID = Majors.majorID WHERE Students.Status=0");
 //this is for generating the major dropdown
-$sql = "SELECT * FROM Majors"; 
+$sql = "SELECT * FROM Majors";
 $sth->execute();
 // to run this multiple foreachs
 $maj = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
