@@ -111,6 +111,36 @@ $(document).ready(function() {
 
 			});
 
+			//~~~~~~~~~~~~~~~~~~~~2.0 REMOVE Student~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				$('.remove-student').click(function() {
+					//	ajax post function
+					$.ajax({
+						url: 'processing/remove-student.php',
+						type: "POST",
+						data: {
+							//locate data fields
+							sid : $(this).closest("tr").find(".sid").text(),
+
+						},
+						success:function(data) {
+							alert(data + " successful");
+						},
+						error: function() {
+							alert("error ajax");
+						}
+					});
+
+				//hide inputs
+				$(this).closest("tr").find(".lname input").remove();
+				$(this).closest("tr").find(".fname input").remove();
+				$(this).closest("tr").find(".majselect").addClass("hideit");
+
+				//switch out buttons
+				$(this).parent().children(".save-student, .cancel-student").addClass("hideit");
+				$(this).parent().children(".edit-student, .remove-student").removeClass("hideit");
+
+				});
+
 
 
 //=========================SAVE Course BUTTON=====================
